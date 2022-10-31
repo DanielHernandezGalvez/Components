@@ -77,3 +77,77 @@ void main(List<String> arguments) {
 // void id(String nombre, String apellido, [var edad]){
 //   print('La persona es $nombre, su apellido es: $apellido de $edad años');
 // }
+
+
+// Funciones recursivas
+// void main(List<String> arguments){
+//  var cinco = factorial(5);
+// print(cinco);
+// }
+
+// // n*(n-1)*(n-2)...*1
+// int factorial(int num){
+//   if(num == 1){
+//     return 1;
+//   } else{
+//     return num * factorial(num-1);
+//   }
+// }
+
+
+// Función anonima
+
+
+// void main(List<String> arguments){
+//  var lista = ['luis', 'dani', 'soni'];
+//  lista.forEach((element) {
+   
+//  });
+// }
+
+//Arrow funcion
+// void main(List<String> arguments){
+// //  hl();
+//   var soni = amor(2,4);
+//   print(soni);
+// }
+
+// // void hl() => print('hola mundo');
+
+// int amor(int int1, int int2) => int1 * int2;
+
+// void main(List<String> args){
+//   var listaA = [3];
+//   listaA.add(1);
+//   listaA.add(4);
+//   listaA.add(14);
+  
+//   print('Cascada');
+//   listaA.forEach(print);
+  
+//   var listaB  = [];
+//   listaB
+//   ..add(3)
+//   ..add(5)
+//   ..add(5);
+  
+//   print('Sin cscada');
+//   listaB.forEach(print);
+// }
+
+// void main(List<String> args){
+//   var listaA = [3, 4, 32];
+//   var listaB = calcularCuadrado(listaA);
+//   print(listaA);
+//   print(listaB);
+//   }
+
+//  List calcularCuadrado(List listaA){
+//    var listaB = [];
+//    for(var numero in listaA){
+//      listaB.add(numero * numero);
+//    }
+//    return listaB;
+//  }
+  
+  
