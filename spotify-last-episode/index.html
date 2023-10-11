@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spotify Podcast Player</title>
+</head>
+<body>
+  <script src="https://sdk.scdn.co/js/client-20230820.js"></script>
+  <script>
+    const iframe = getNewEpisodeIframe();
+    document.querySelector(".podcast-player").innerHTML = iframe;
+
+    document.querySelector(".podcast-player").addEventListener("click", () => {
+      const iframe = getNewEpisodeIframe();
+      document.querySelector(".podcast-player").innerHTML = iframe;
+    });
+
+    // Actualizar el iframe cada 10 minutos
+    setInterval(() => {
+      const iframe = getNewEpisodeIframe();
+      document.querySelector(".podcast-player").innerHTML = iframe;
+    }, 600000);
+  </script>
+
+  <div class="podcast-player">
+    <iframe src="https://open.spotify.com/embed/episode/1234567890" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
+</body>
+</html>
