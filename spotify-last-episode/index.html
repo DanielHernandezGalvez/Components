@@ -16,38 +16,6 @@
     loading="lazy">
   </iframe>
 
-  <script>
-    const SpotifyClient = require("spotify-web-api-node");
-    
-    const clientId = "YOUR_CLIENT_ID";
-    const clientSecret = "YOUR_CLIENT_SECRET";
-    
-    const iframe = document.querySelector("iframe");
-    const showId = iframe.dataset.showId;
-    
-    const getLatestEpisode = async () => {
-      const client = new SpotifyClient({
-        clientId,
-        clientSecret,
-      });
-    
-      const token = await client.getAccessToken();
-    
-      const url = `https://api.spotify.com/v1/shows/${showId}/episodes/latest`;
-      const response = await fetch(url, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const data = await response.json();
-    
-      return data.episode;
-    };
-    
-    const episode = await getLatestEpisode();
-    
-    iframe.src = `https://open.spotify.com/embed/episode/${episode.id}?si=${episode.uri}`;
-    </script>
-    
+<script src="./main.js"></script>
 </body>
 </html>

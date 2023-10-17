@@ -1,7 +1,7 @@
-// import SpotifyClient from "spotify-web-api-node";
+import SpotifyClient from "spotify-web-api-node";
 
 
-const SpotifyClient = require("spotify-web-api-node");
+// const SpotifyClient = require("spotify-web-api-node");
 
 const clientId = "336910e6331f466ab460dff69bb94358";
 const clientSecret = "70565bc0dcf647538ab3c943a9f09ecc";
