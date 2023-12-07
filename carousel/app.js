@@ -21,10 +21,10 @@ function mostrar(n) {
   imagenes[n].className += " actual";
   puntos(n);
 }
-
+// aqui agregar en el 2 si se quieren más imágenes
 function siguiente() {
   actual++;
-  if (actual > 3) {
+  if (actual > 2) {
     actual = 0;
   }
   mostrar(actual);
@@ -32,7 +32,7 @@ function siguiente() {
 function anterior() {
   actual--;
   if (actual < 0) {
-    actual = 3;
+    actual = 2;
   }
   mostrar(actual);
 }
