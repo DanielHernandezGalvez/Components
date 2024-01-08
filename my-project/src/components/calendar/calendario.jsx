@@ -105,7 +105,7 @@ export default function Calendario() {
             <td
               key={dayCounter}
               onClick={() => handleClick(dayCounter)}
-              className={`border border-gray-500 p-1 cursor-pointer ${
+              className={`border border-[--brown] p-1 cursor-pointer ${
                 dayCounter === day ? "bg-gray-300" : ""
               }`}
             >
@@ -117,7 +117,7 @@ export default function Calendario() {
           row.push(
             <td
               key={dayCounter}
-              className="border border-gray-500 p-1 cursor-pointer"
+              className="border border-[--brown] p-1 cursor-pointer"
             ></td>
           );
         }
@@ -146,7 +146,7 @@ export default function Calendario() {
       .concat(calendarioActividades.enero2024.historia)
       .concat(calendarioActividades.enero2024.historiaArte)
       .concat(calendarioActividades.enero2024.pilatesBarreBajaIntensidad);
-  
+
     return talleresDelDia.map((taller) => taller.evento);
   };
 
@@ -168,26 +168,29 @@ export default function Calendario() {
       .concat(calendarioActividades.enero2024.historia)
       .concat(calendarioActividades.enero2024.historiaArte)
       .concat(calendarioActividades.enero2024.pilatesBarreBajaIntensidad);
-  
+
     const horariosDelTaller = talleresDelDia
       .filter((taller) => taller.evento === selectedTaller)
       .map((taller) => taller.horario);
-  
+
     return horariosDelTaller;
   };
 
   return (
     <div>
       <h1 className="text-4xl text-center text-gray-500">Calendario</h1>
-      <div>
-        <label htmlFor="talleres">Selecciona un taller:</label>
+      <div className="my-5 text-xl max-w-[500px] px-5">
+        <label className="bg-[--brown] text-white p-2 pe-4" htmlFor="talleres">
+          Selecciona un taller:
+        </label>
         <select
+          className="w-[200px] bg-[--beige] p-2 text-[--brown] px-5"
           id="talleres"
           value={selectedTaller}
           onChange={handleTallerChange}
         >
           <option value="" disabled>
-            Selecciona un taller
+            - -
           </option>
           {obtenerTalleresDelDia().map((taller, index) => (
             <option key={index} value={taller}>
@@ -196,15 +199,19 @@ export default function Calendario() {
           ))}
         </select>
       </div>
-      <div>
-        <label htmlFor="horarios">Selecciona un horario:</label>
+
+      <div className="my-5 text-xl max-w-[500px] px-5">
+        <label className="bg-[--brown] pe-6 text-white p-2 w-[200px]" htmlFor="horarios">
+          Seleccione la Hora:
+        </label>
         <select
+          className="w-[200px] bg-[--beige] p-2 text-[--brown] px-5"
           id="horarios"
           value={selectedHorario}
           onChange={handleHorarioChange}
         >
           <option value="" disabled>
-            Selecciona un horario
+            - -
           </option>
           {obtenerHorariosDelTaller().map((horario, index) => (
             <option key={index} value={horario}>
@@ -213,16 +220,20 @@ export default function Calendario() {
           ))}
         </select>
       </div>
-      <table className="border-collapse border border-gray-500">
-        <thead>
+      <table
+        className="border-collapse font-bold text-[--brown] 
+        table-auto border border-[--brown] bg-[--yellow]
+        border-gray-500 m-5"
+      >
+        <thead className="bg-[--brown] text-white">
           <tr>
-            <th className="border border-gray-500 p-1">Lun</th>
-            <th className="border border-gray-500 p-1">Mar</th>
-            <th className="border border-gray-500 p-1">Miér</th>
-            <th className="border border-gray-500 p-1">Jue</th>
-            <th className="border border-gray-500 p-1">Vier</th>
-            <th className="border border-gray-500 p-1">Sáb</th>
-            <th className="border border-gray-500 p-1">Dom</th>
+            <th className="border border-[--brown] p-1">Lun</th>
+            <th className="border border-[--brown] p-1">Mar</th>
+            <th className="border border-[--brown] p-1">Miér</th>
+            <th className="border border-[--brown] p-1">Jue</th>
+            <th className="border border-[--brown] p-1">Vier</th>
+            <th className="border border-[--brown] p-1">Sáb</th>
+            <th className="border border-[--brown] p-1">Dom</th>
           </tr>
         </thead>
         <tbody>{renderCells()}</tbody>
