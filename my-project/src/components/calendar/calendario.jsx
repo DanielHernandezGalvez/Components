@@ -150,41 +150,6 @@ export default function Calendario() {
     return talleresDelDia.map((taller) => taller.evento);
   };
 
-//   const obtenerTalleresDelDia = () => {
-//     // Obtener los talleres del día seleccionado
-//     const talleresDelDia = [];
-
-//     // Función auxiliar para evitar duplicados
-//     const agregarTalleres = (arrayTalleres) => {
-//       arrayTalleres.forEach((taller) => {
-//         if (!talleresDelDia.some((t) => t.evento === taller.evento)) {
-//           talleresDelDia.push(taller);
-//         }
-//       });
-//     };
-
-//     // Agregar talleres de cada categoría al array
-//     agregarTalleres(calendarioActividades.enero2024.cine);
-//     agregarTalleres(calendarioActividades.enero2024.power);
-//     agregarTalleres(calendarioActividades.enero2024.ejerciciosFuncionales);
-//     agregarTalleres(calendarioActividades.enero2024.defensaPersonal);
-//     agregarTalleres(calendarioActividades.enero2024.yoga);
-//     agregarTalleres(calendarioActividades.enero2024.desarrolloBienEstarPersonal);
-//     agregarTalleres(calendarioActividades.enero2024.tertuliasFilosofia);
-//     agregarTalleres(calendarioActividades.enero2024.pintura);
-//     agregarTalleres(calendarioActividades.enero2024.catasVino);
-//     agregarTalleres(calendarioActividades.enero2024.estiloPersonalDamas);
-//     agregarTalleres(calendarioActividades.enero2024.estiloPersonalCaballeros);
-//     agregarTalleres(calendarioActividades.enero2024.fengShui);
-//     agregarTalleres(calendarioActividades.enero2024.finanzasPersonales);
-//     agregarTalleres(calendarioActividades.enero2024.fengShui);
-//     agregarTalleres(calendarioActividades.enero2024.historia);
-//     agregarTalleres(calendarioActividades.enero2024.historiaArte);
-//     agregarTalleres(calendarioActividades.enero2024.pilatesBarreBajaIntensidad);
-
-//     return talleresDelDia;
-//   };
-
   const obtenerHorariosDelTaller = () => {
     // Obtener los horarios del taller seleccionado
     const talleresDelDia = calendarioActividades.enero2024.cine
@@ -265,4 +230,3 @@ export default function Calendario() {
     </div>
   );
 }
-
