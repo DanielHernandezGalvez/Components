@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import calendarioActividades from "./enero";
 import json from "./enero.json";
 
 export default function Calendario() {
@@ -72,7 +71,7 @@ export default function Calendario() {
     });
     
     // Verificar si hay talleres para el día seleccionado
-    if (talleresDelDia.length > 0 && dayNumber === 2) {
+    if (talleresDelDia.length > 0 ) {
       // Obtener eventos de los talleres filtrados
       const eventosTalleres = talleresDelDia.map((taller) => taller.tipo);
   
