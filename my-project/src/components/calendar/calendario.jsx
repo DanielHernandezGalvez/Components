@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import calendarioActividades from "./enero";
 
@@ -136,7 +134,10 @@ export default function Calendario() {
       </div>
 
       <div className="my-5 text-xl max-w-[500px] px-5">
-        <label className="bg-[--brown] pe-6 text-white p-2 w-[200px]" htmlFor="horarios">
+        <label
+          className="bg-[--brown] pe-6 text-white p-2 w-[200px]"
+          htmlFor="horarios"
+        >
           Seleccione la Hora:
         </label>
         <select
@@ -173,6 +174,13 @@ export default function Calendario() {
         </thead>
         <tbody>{renderCells()}</tbody>
       </table>
+      {selectedHorario === "- -" && selectedTaller == "- -" ? (
+        <p>Nada</p>
+      ) : (
+        <p>
+          {day}, {selectedTaller} y {selectedHorario}
+        </p>
+      )}
     </div>
   );
 }
