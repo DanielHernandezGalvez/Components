@@ -1,8 +1,66 @@
-# React + Vite
+// import React, { useState  } from "react";
+// import calendarioActividades from "./enero";
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+// export default function Calendario() {
+//   const [day, setDay] = useState(1);
 
-Currently, two official plugins are available:
+//   const handleClick = (value) => {
+//     setDay(value);
+//     console.log(value);
+//   };
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+//   const renderCells = () => {
+//     const cells = [];
+
+//     for (let i = 0; i < 5; i++) {
+//       const row = [];
+//       for (let j = 0; j < 7; j++) {
+//         const dayCounter = i * 7 + j + 1;
+
+//         if (dayCounter <= 31) {
+//           // Renderizar celdas con contenido hasta 31
+//           row.push(
+//             <td
+//               key={dayCounter}
+//               onClick={() => handleClick(dayCounter)}
+//               className="border border-gray-500 p-1 cursor-pointer"
+//             >
+//               {dayCounter}
+//             </td>
+//           );
+//         } else {
+//           // Renderizar celda sin contenido después de 31
+//           row.push(
+//             <td
+//               key={dayCounter}
+//               className="border border-gray-500 p-1 cursor-pointer"
+//             ></td>
+//           );
+//         }
+//       }
+//       cells.push(<tr key={i}>{row}</tr>);
+//     }
+
+//     return cells;
+//   };
+
+//   return (
+//     <div>
+//       <h1 className="text-4xl text-center text-gray-500">Calendario</h1>
+//       <table className="border-collapse border border-gray-500">
+//         <thead>
+//           <tr>
+//             <th className="border border-gray-500 p-1">Lun</th>
+//             <th className="border border-gray-500 p-1">Mar</th>
+//             <th className="border border-gray-500 p-1">Miér</th>
+//             <th className="border border-gray-500 p-1">Jue</th>
+//             <th className="border border-gray-500 p-1">Vier</th>
+//             <th className="border border-gray-500 p-1">Sáb</th>
+//             <th className="border border-gray-500 p-1">Dom</th>
+//           </tr>
+//         </thead>
+//         <tbody>{renderCells()}</tbody>
+//       </table>
+//     </div>
+//   );
+// }
