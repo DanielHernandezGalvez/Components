@@ -39,7 +39,7 @@ export default function Calendario() {
             <td
               key={dayCounter}
               onClick={() => handleClick(dayCounter)}
-              className={`border border-[--brown] p-1 cursor-pointer ${
+              className={`border border-[--brown] p-3 cursor-pointer ${
                 dayCounter === day ? "bg-gray-300" : ""
               }`}
             >
@@ -122,6 +122,28 @@ export default function Calendario() {
   return (
     <div>
       <h1 className="text-4xl text-center text-gray-500">Calendario</h1>
+      <section className="flex flex-wrap items-center justify-around mt-6">
+
+      <table
+        className="border-collapse font-bold text-[--brown] 
+        table-auto border border-[--brown] bg-[--yellow]
+        border-gray-500 m-5"
+      >
+        <thead className="bg-[--brown] text-white">
+          <tr>
+            <th className="border border-[--brown] p-2">Lun</th>
+            <th className="border border-[--brown] p-2">Mar</th>
+            <th className="border border-[--brown] p-2">Miér</th>
+            <th className="border border-[--brown] p-2">Jue</th>
+            <th className="border border-[--brown] p-2">Vier</th>
+            <th className="border border-[--brown] p-2">Sáb</th>
+            <th className="border border-[--brown] p-1">Dom</th>
+          </tr>
+        </thead>
+        <tbody>{renderCells()}</tbody>
+      </table>
+      
+      <div className="flex justify-center items-center flex-col">
       <div className="my-5 text-xl max-w-[500px] px-5">
         <label className="bg-[--brown] text-white p-2 pe-4" htmlFor="talleres">
           Selecciona un taller:
@@ -166,39 +188,23 @@ export default function Calendario() {
           ))}
         </select>
       </div>
-      <table
-        className="border-collapse font-bold text-[--brown] 
-        table-auto border border-[--brown] bg-[--yellow]
-        border-gray-500 m-5"
-      >
-        <thead className="bg-[--brown] text-white">
-          <tr>
-            <th className="border border-[--brown] p-1">Lun</th>
-            <th className="border border-[--brown] p-1">Mar</th>
-            <th className="border border-[--brown] p-1">Miér</th>
-            <th className="border border-[--brown] p-1">Jue</th>
-            <th className="border border-[--brown] p-1">Vier</th>
-            <th className="border border-[--brown] p-1">Sáb</th>
-            <th className="border border-[--brown] p-1">Dom</th>
-          </tr>
-        </thead>
-        <tbody>{renderCells()}</tbody>
-      </table>
-      {selectedHorario === "- -" && selectedTaller == "- -" ? (
-        <p>Nada</p>
-      ) : (
-        <p>
-          {day}, {selectedTaller} y {selectedHorario}
-        </p>
-      )}
 
       <a
-        href={`https://wa.me/523313022587?text=Hola, me gustaría inscribirme al taller ${selectedTaller} del ${day} de enero en el horario de ${selectedHorario} hrs.`}
+        href={`https://wa.me/523313022587?text=Hola, me gustaría inscribirme al
+         taller ${selectedTaller} del ${day} de enero en el horario 
+         de ${selectedHorario} hrs.`}
         target="_blank"
-        className="bg-[--beige] px-4 py-2 text-[--brown] m-5 mt-10 text-xl font-bold"
+        className="bg-[--beige] px-4 py-1 text-[--brown] m-5 mt-5 text-xl 
+          font-bold transition hover:bg-[--brown] hover:text-white flex 
+          justify-evenly items-center max-w-[300px]"
       >
-        Enviar
+        <img width={35} src="https://cdn-icons-png.flaticon.com/128/733/733585.png" alt="" />
+        Agendar Taller
       </a>
+
+      </div>
+
+      </section>
 
     </div>
   );
