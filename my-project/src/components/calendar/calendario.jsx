@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import calendarioActividades from "./enero";
 
 export default function Calendario() {
   const [day, setDay] = useState(1);
   const [selectedTaller, setSelectedTaller] = useState("");
   const [selectedHorario, setSelectedHorario] = useState("");
+
+useEffect(() => {
+  // console.log(calendarioActividades.cine[1])
+
+}, [])
+
 
   const handleClick = (value) => {
     setDay(value);
@@ -15,6 +21,7 @@ export default function Calendario() {
 
   const handleTallerChange = (event) => {
     const nuevoTaller = event.target.value;
+    console.log('Categoría seleccionada:', nuevoTaller);
     setSelectedTaller(nuevoTaller);
     setSelectedHorario(""); // Limpiar el horario seleccionado al cambiar de taller
   };
@@ -62,51 +69,37 @@ export default function Calendario() {
   };
 
   const obtenerTalleresDelDia = () => {
-    // Obtener los talleres del día seleccionado
-    const talleresDelDia = calendarioActividades.enero2024.cine
-      .concat(calendarioActividades.enero2024.power)
-      .concat(calendarioActividades.enero2024.ejerciciosFuncionales)
-      .concat(calendarioActividades.enero2024.defensaPersonal)
-      .concat(calendarioActividades.enero2024.yoga)
-      .concat(calendarioActividades.enero2024.desarrolloBienEstarPersonal)
-      .concat(calendarioActividades.enero2024.tertuliasFilosofia)
-      .concat(calendarioActividades.enero2024.pintura)
-      .concat(calendarioActividades.enero2024.catasVino)
-      .concat(calendarioActividades.enero2024.estiloPersonalDamas)
-      .concat(calendarioActividades.enero2024.estiloPersonalCaballeros)
-      .concat(calendarioActividades.enero2024.fengShui)
-      .concat(calendarioActividades.enero2024.finanzasPersonales)
-      .concat(calendarioActividades.enero2024.historia)
-      .concat(calendarioActividades.enero2024.historiaArte)
-      .concat(calendarioActividades.enero2024.pilatesBarreBajaIntensidad);
-
-    return talleresDelDia.map((taller) => taller.evento);
+    // Verificar si la categoría seleccionada existe
+    if (calendarioActividades.enero2024.hasOwnProperty(selectedTaller)) {
+      const talleresCategoria = calendarioActividades.enero2024[selectedTaller];
+      
+      // Verificar si los talleres son un array
+      if (Array.isArray(talleresCategoria)) {
+        const talleresDelDia = talleresCategoria.filter(taller => {
+          return taller.fecha.includes(`2024/01/${day}`);
+        });
+  
+        console.log('Talleres del día:', talleresDelDia);
+        
+        // Obtener eventos de los talleres filtrados
+        return talleresDelDia.map(taller => taller.evento);
+      }
+    }
+  
+    return [];
   };
-
+  
   const obtenerHorariosDelTaller = () => {
     // Obtener los horarios del taller seleccionado
-    const talleresDelDia = calendarioActividades.enero2024.cine
-      .concat(calendarioActividades.enero2024.power)
-      .concat(calendarioActividades.enero2024.ejerciciosFuncionales)
-      .concat(calendarioActividades.enero2024.defensaPersonal)
-      .concat(calendarioActividades.enero2024.yoga)
-      .concat(calendarioActividades.enero2024.desarrolloBienEstarPersonal)
-      .concat(calendarioActividades.enero2024.tertuliasFilosofia)
-      .concat(calendarioActividades.enero2024.pintura)
-      .concat(calendarioActividades.enero2024.catasVino)
-      .concat(calendarioActividades.enero2024.estiloPersonalDamas)
-      .concat(calendarioActividades.enero2024.estiloPersonalCaballeros)
-      .concat(calendarioActividades.enero2024.fengShui)
-      .concat(calendarioActividades.enero2024.finanzasPersonales)
-      .concat(calendarioActividades.enero2024.historia)
-      .concat(calendarioActividades.enero2024.historiaArte)
-      .concat(calendarioActividades.enero2024.pilatesBarreBajaIntensidad);
-
-    const horariosDelTaller = talleresDelDia
-      .filter((taller) => taller.evento === selectedTaller)
-      .map((taller) => taller.horario);
-
-    return horariosDelTaller;
+    const talleresCategoria = calendarioActividades.enero2024[selectedTaller];
+  
+    if (Array.isArray(talleresCategoria)) {
+      return talleresCategoria
+        .filter((taller) => taller.fecha.includes(`2024/01/${day}`))
+        .map((taller) => taller.horario);
+    }
+  
+    return [];
   };
 
   return (
@@ -174,13 +167,13 @@ export default function Calendario() {
         </thead>
         <tbody>{renderCells()}</tbody>
       </table>
-      {selectedHorario === "- -" && selectedTaller == "- -" ? (
+      {/* {selectedHorario === "- -" && selectedTaller == "- -" ? (
         <p>Nada</p>
       ) : (
         <p>
           {day}, {selectedTaller} y {selectedHorario}
         </p>
-      )}
+      )} */}
     </div>
   );
 }
