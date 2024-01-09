@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import calendarioActividades from "./enero";
+import json from "./enero.json";
 
 export default function Calendario() {
-  const [day, setDay] = useState(1);
+  const [day, setDay] = useState(0);
   const [selectedTaller, setSelectedTaller] = useState("");
   const [selectedHorario, setSelectedHorario] = useState("");
-
-useEffect(() => {
-  // console.log(calendarioActividades.cine[1])
-
-}, [])
-
 
   const handleClick = (value) => {
     setDay(value);
@@ -69,37 +64,33 @@ useEffect(() => {
   };
 
   const obtenerTalleresDelDia = () => {
-    // Verificar si la categoría seleccionada existe
-    if (calendarioActividades.enero2024.hasOwnProperty(selectedTaller)) {
-      const talleresCategoria = calendarioActividades.enero2024[selectedTaller];
-      
-      // Verificar si los talleres son un array
-      if (Array.isArray(talleresCategoria)) {
-        const talleresDelDia = talleresCategoria.filter(taller => {
-          return taller.fecha.includes(`2024/01/${day}`);
-        });
+    const dayNumber = parseInt(day, 10); // Convertir day a número
   
-        console.log('Talleres del día:', talleresDelDia);
-        
-        // Obtener eventos de los talleres filtrados
-        return talleresDelDia.map(taller => taller.evento);
-      }
+    const talleresDelDia = json.actividades.filter((taller) => {
+      // Usar dayNumber en la comparación
+      return taller.fecha.includes(`2024/01/${dayNumber}`);
+    });
+    
+    // Verificar si hay talleres para el día seleccionado
+    if (talleresDelDia.length > 0 && dayNumber === 2) {
+      // Obtener eventos de los talleres filtrados
+      const eventosTalleres = talleresDelDia.map((taller) => taller.tipo);
+  
+      // Eliminar duplicados
+      const talleresUnicos = [...new Set(eventosTalleres)];
+  
+      return talleresUnicos;
+    } else {
+      // Si no hay talleres, mostrar solo la opción '- -'
+      return ["- -"];
     }
-  
-    return [];
   };
   
   const obtenerHorariosDelTaller = () => {
-    // Obtener los horarios del taller seleccionado
-    const talleresCategoria = calendarioActividades.enero2024[selectedTaller];
-  
-    if (Array.isArray(talleresCategoria)) {
-      return talleresCategoria
-        .filter((taller) => taller.fecha.includes(`2024/01/${day}`))
-        .map((taller) => taller.horario);
-    }
-  
-    return [];
+    // Modifica esta función para usar el nuevo JSON
+    return json.actividades
+      .filter((taller) => taller.fecha.includes(`2024/01/${day}`))
+      .map((taller) => taller.horario);
   };
 
   return (
@@ -167,13 +158,13 @@ useEffect(() => {
         </thead>
         <tbody>{renderCells()}</tbody>
       </table>
-      {/* {selectedHorario === "- -" && selectedTaller == "- -" ? (
+      {selectedHorario === "- -" && selectedTaller == "- -" ? (
         <p>Nada</p>
       ) : (
         <p>
           {day}, {selectedTaller} y {selectedHorario}
         </p>
-      )} */}
+      )}
     </div>
   );
 }
