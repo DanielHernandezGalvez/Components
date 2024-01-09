@@ -15,7 +15,7 @@ export default function Calendario() {
 
   const handleTallerChange = (event) => {
     const nuevoTaller = event.target.value;
-    console.log('Categoría seleccionada:', nuevoTaller);
+    console.log("Categoría seleccionada:", nuevoTaller);
     setSelectedTaller(nuevoTaller);
     setSelectedHorario(""); // Limpiar el horario seleccionado al cambiar de taller
   };
@@ -63,33 +63,60 @@ export default function Calendario() {
   };
 
   const obtenerTalleresDelDia = () => {
-    const dayNumber = parseInt(day, 10); // Convertir day a número
-  
+    const dayNumber = parseInt(day, 10);
+
     const talleresDelDia = json.actividades.filter((taller) => {
-      // Usar dayNumber en la comparación
-      return taller.fecha.includes(`2024/01/${dayNumber}`);
+      const fechaTaller = new Date(taller.fecha);
+      const fechaComparacion = new Date(`2024/01/${dayNumber}`);
+
+      // Compara las fechas eliminando las horas, minutos, segundos y milisegundos
+      fechaTaller.setHours(0, 0, 0, 0);
+      fechaComparacion.setHours(0, 0, 0, 0);
+
+      return fechaTaller.getTime() === fechaComparacion.getTime();
     });
-    
-    // Verificar si hay talleres para el día seleccionado
-    if (talleresDelDia.length > 0 ) {
-      // Obtener eventos de los talleres filtrados
+
+    console.log("Talleres del día:", talleresDelDia);
+
+    if (talleresDelDia.length > 0) {
       const eventosTalleres = talleresDelDia.map((taller) => taller.tipo);
-  
-      // Eliminar duplicados
       const talleresUnicos = [...new Set(eventosTalleres)];
-  
       return talleresUnicos;
     } else {
-      // Si no hay talleres, mostrar solo la opción '- -'
       return ["- -"];
     }
   };
-  
+
   const obtenerHorariosDelTaller = () => {
-    // Modifica esta función para usar el nuevo JSON
-    return json.actividades
-      .filter((taller) => taller.fecha.includes(`2024/01/${day}`))
-      .map((taller) => taller.horario);
+    const talleresDelDia = json.actividades.filter((taller) => {
+      const fechaTaller = new Date(taller.fecha);
+      const fechaComparacion = new Date(`2024/01/${day}`);
+
+      fechaTaller.setHours(0, 0, 0, 0);
+      fechaComparacion.setHours(0, 0, 0, 0);
+
+      return (
+        fechaTaller.getTime() === fechaComparacion.getTime() &&
+        taller.tipo === selectedTaller
+      );
+    });
+
+    if (talleresDelDia.length > 0) {
+      const horariosTaller = talleresDelDia.reduce((horarios, taller) => {
+        const horarioCompleto = taller.horario.trim();
+
+        // Verificar si el horario completo ya existe en la lista antes de agregarlo
+        if (!horarios.includes(horarioCompleto)) {
+          horarios.push(horarioCompleto);
+        }
+
+        return horarios;
+      }, []);
+
+      return horariosTaller.length > 0 ? horariosTaller : ["- -"];
+    } else {
+      return ["- -"];
+    }
   };
 
   return (
@@ -164,6 +191,15 @@ export default function Calendario() {
           {day}, {selectedTaller} y {selectedHorario}
         </p>
       )}
+
+      <a
+        href={`https://wa.me/523313022587?text=Hola, me gustaría inscribirme al taller ${selectedTaller} del ${day} de enero en el horario de ${selectedHorario} hrs.`}
+        target="_blank"
+        className="bg-[--beige] px-4 py-2 text-[--brown] m-5 mt-10 text-xl font-bold"
+      >
+        Enviar
+      </a>
+
     </div>
   );
 }
