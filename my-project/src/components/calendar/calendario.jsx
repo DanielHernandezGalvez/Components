@@ -198,7 +198,7 @@ export default function Calendario() {
           font-bold transition hover:bg-[--brown] hover:text-white flex 
           justify-evenly items-center max-w-[300px]"
       >
-        <img width={35} src="https://cdn-icons-png.flaticon.com/128/733/733585.png" alt="" />
+        <img width={35} src="https://cdn-icons-png.flaticon.com/128/733/733585.png" alt="whatsapp" />
         Agendar Taller
       </a>
 
