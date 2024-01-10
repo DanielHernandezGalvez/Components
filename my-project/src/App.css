@@ -30,6 +30,9 @@
     --gray: #707070;
   }
 
+  html{
+    scroll-behavior: smooth;
+  }
   
   body {
     font-family: "Bentoga Italic", "Montserrat", sans-serif;
@@ -77,6 +80,13 @@
     background-size: cover;
     background-position: top;
   }
+
+  @media screen and (max-width: 768px) {
+    .hero1 {
+      height: 30vh;
+   
+    }
+  }
   .bg-beige-1 {
     background-image: url("./assets/images/bg-beige-1.png");
     background-size: cover;
@@ -118,3 +128,37 @@
   .slides-container::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
   }
+
+  .float{
+    position:fixed;
+    width:50px;
+    height:50px;
+    bottom:40px;
+    right:40px;
+    background-color:#25d366;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    z-index:100;
+    transition: .3s ease all;
+  }
+  
+  .my-float{
+    margin-top:11px;
+  }
+
+  .float:hover{
+    transform: scale(1.1);
+  }
+
+@media screen and (max-width: 768px) {
+ 
+  .principal{
+    flex-wrap: wrap;
+  }
+
+  .principal2 {
+    flex-wrap: wrap-reverse;
+  }
+}

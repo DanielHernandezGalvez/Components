@@ -15,9 +15,9 @@ const Navbar = () => {
     return (
         <>
             <nav className="flex justify-center w-100 bg-[--yellow] py-10 monserrat">
-                <div>
+                <div className="lg:w-[80%] md:w-[60%] sm:w-[50%]">
                     <a href="#">
-                        <img className="w-[80%] mt-10" src={logo} alt="" />
+                        <img className="  mt-10 " src={logo} alt="" />
                     </a>
                 </div>
                 <div className="flex flex-wrap items-center justify-evenly py-4 md:py-0 px-2 text-lg text-gray-700">
@@ -45,32 +45,32 @@ const Navbar = () => {
         }`} id="menu">
                         <ul className="py-4 text-xl text-[--brown] md:flex md:justify-between md:pt-0 font-bold">
                             <li>
-                                <a className="md:p-4 py-2 block hover:text-gray-500" href="#">
+                                <a className="md:p-4 py-2 block hover:text-gray-500" href="#aceituna">
                                     ACEITUNA
                                 </a>
                             </li>
                             <li>
-                                <a className="md:p-4 py-2 block hover:text-gray-500" href="#">
+                                <a className="md:p-4 py-2 block hover:text-gray-500" href="#talleres">
                                     TALLERES
                                 </a>
                             </li>
                             <li>
-                                <a className="md:p-4 py-2 block hover:text-gray-500" href="#">
+                                <a className="md:p-4 py-2 block hover:text-gray-500" href="#suscripiones">
                                     SUSCRIPCIONES
                                 </a>
                             </li>
                             <li>
-                                <a className="md:p-4 py-2 block hover:text-gray-500" href="#">
+                                <a className="md:p-4 py-2 block hover:text-gray-500" href="#galeria">
                                     GALERÍA
                                 </a>
                             </li>
                             <li>
-                                <a className="md:p-4 py-2 block hover:text-gray-500" href="#">
+                                <a className="md:p-4 py-2 block hover:text-gray-500" href="#calendario">
                                     CALENDARIO
                                 </a>
                             </li>
                             <li>
-                                <a className="md:p-4 py-2 block hover:text-gray-500" href="#">
+                                <a className="md:p-4 py-2 block hover:text-gray-500" href="#contacto">
                                     CONTACTO
                                 </a>
                             </li>

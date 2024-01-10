@@ -38,15 +38,18 @@ function App() {
   return (
     <>
       <Navbar />
+      <a href="https://api.whatsapp.com/send?phone=523313022587&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20talleres%20."
+        class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
       <main class="bg-[--yellow]">
         <section class="hero">
           <div
-            class="w-50 bg-beige-1 text-center pt-16 pb-8 px-16 relative top-60 max-w-[70vw] mx-auto"
+            class="w-50 bg-beige-1 text-center pt-16 pb-8 px-16 relative top-60 lg:max-w-[70vw] sm:max-w-[95vw] mx-auto"
           >
-            <span class="bg-[--beige] px-16 py-2 text-3xl text-[--gray] monserrat"
-            >ACEITUNA</span
-            >
-            <p class="text-[--brown] mt-10">
+            <span class="bg-[--beige] px-16 py-2 lg:text-3xl sm:text-1xl text-[--gray] monserrat"
+            >ACEITUNA</span>
+            <p class="text-[--brown] lg:text-xl md:text-base sm:text-base mt-10">
               Somos una plataforma dedicada a elevar la experiencia de los adultos
               con base a actividades de diferentes intereses y así empoderar su vida
               y hacer una comunidad de personas afines a sus intereses.
@@ -63,10 +66,10 @@ function App() {
         <section class="hero1"></section>
 
 
-        <section class="w-full bg-[--beige-clear] p-10">
+        <section class="w-full bg-[--beige-clear] p-10" id='aceituna'>
           <div class="mx-auto pb-5">
             <h2 class="text-[--brown] text-4xl text-center">
-              BENEFICIOS DE ESTA R EN ACEITUNA
+              BENEFICIOS DE ESTAR EN ACEITUNA
             </h2>
             <div class="flex justify-center gap-10 flex-wrap mt-10" id="boxes">
               <div class="flex justify-center items-center text-3xl">
@@ -79,40 +82,38 @@ function App() {
         </section>
 
         <section class="flex justify-center py-20">
-          <a href="">
+          <a href="#contacto">
             <img src={inscripcion} class="w-[500px]" alt="" />
           </a>
         </section>
 
-        <section class="flex justify-between bg-[--beige-clear]">
+        <section class="flex justify-between bg-[--beige-clear] flex-wrap">
           <div class="py-20 ps-10">
             <span
-              class="bg-[--beige] text-[--brown] monserrat font-medium text-4xl p-4"
-            >¿Cómo funciona?</span
-            >
-            <p class="mt-10 mb-10 text-[--brown] text-xl">
+              class="bg-[--beige] text-[--brown] monserrat font-medium lg:text-4xl md:text-2xl   p-4"
+            >¿Cómo funciona?</span>
+            <p class="mt-10 mb-10 text-[--brown] lg:text-xl md:text-base">
               Tenemos varías formas por las cuales pueden contactarnos y te <br />
               apoyaremos desde la que sea de tu elección, conócelas <br /> más adelante...
             </p>
-            <a class="mt-10" href=""
-            ><img src={leerMas} class="w-[15vw]" alt="" /></a
-            >
+            <a class="mt-10" href="#talleres"
+            ><img src={leerMas} class="w-[20vw] " alt="" /></a>
           </div>
           <div class="">
             <img
               src={comoFunciona}
-              class="w-[40vw] h-[60vh] object-cover"
+              class="lg:w-[40vw] lg:h-[60vh] sm:w-[80vw] sm:h-[40vh] object-cover"
               alt=""
             />
           </div>
         </section>
 
-        <section id="talleres" class="bg-[--beige] pb-20">
-          <h2 class="text-[--brown] text-5xl text-center pt-16">
+        <section id="talleres" class="bg-[--beige] pb-20" >
+          <h2 class="text-[--brown] lg:text-5xl  text-center pt-16">
             TALLERES QUE OFRECEMOS
           </h2>
           <p
-            class="text-[--brown] text-2xl text-center text-medium mb-10 monserrat"
+            class="text-[--brown] monserrat text-center font-medium mb-10  lg:text-2xl "
           >
             Consulta el calendario de actividades
           </p>
@@ -158,11 +159,11 @@ function App() {
         </section>
 
         <section class="pb-20">
-          <h2 class="text-4xl text-[--brown] text-center pt-16">SUSCRIPCIONES</h2>
-          <div class="flex justify-center flex-wrap gap-20 mt-10">
-            <img src={silver} class="w-[40vw] h-auto" alt="" />
-            <img src={gold} class="w-[40vw] h-auto" alt="" />
-            <img src={vip} class="w-[40vw] h-auto" alt="" />
+          <h2 class="text-4xl text-[--brown] text-center pt-16" id='suscripiones'>SUSCRIPCIONES</h2>
+          <div class="lg:flex justify-center flex-wrap gap-20 mt-10">
+            <img src={silver} class="lg:w-[40vw] m-auto h-auto" alt="" />
+            <img src={gold} class="lg:w-[40vw] m-auto  h-auto" alt="" />
+            <img src={vip} class="lg:w-[40vw] m-auto  h-auto" alt="" />
           </div>
         </section>
 
@@ -170,15 +171,16 @@ function App() {
           <h2 class="text-4xl text-[--brown] text-center pt-16 pb-16">
             FUNDADORES
           </h2>
-          <div class="flex justify-around items-center h-full flex-wrap">
-            <img src={fundador} class="w-[30vw]" alt="" />
-            <img src={fundadora} class="w-[30vw]" alt="" />
+          <div class="lg:flex justify-around items-center h-full flex-wrap">
+            <img src={fundador} class="lg:w-[30vw] m-auto" alt="" />
+            <img src={fundadora} class="lg:w-[30vw] m-auto" alt="" />
           </div>
         </section>
 
-        <Carousel />
+        <span id="galeria"></span>
+        <Carousel  />
 
-        <section class="bg-[--beige] pb-16">
+        <section class="bg-[--beige] pb-16" id='calendario'>
           <h4 class="text-4xl text-[--brown] text-center pt-16 pb-16">
             CALENDARIO DE TALLERES
           </h4>
@@ -188,7 +190,7 @@ function App() {
 
         <div class="w-full h-16"></div>
 
-        <section class="bg-[--beige] pb-16">
+        <section class="bg-[--beige] pb-16" id='contacto'>
           <h4 class="text-4xl text-[--brown] text-center pt-16 pb-16">CONTACTO</h4>
           <form class="flex justify-center items-center gap-5" action="path/to/sendMail.php" method="POST">
             <input
