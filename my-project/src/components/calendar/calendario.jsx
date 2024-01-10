@@ -121,7 +121,6 @@ export default function Calendario() {
 
   return (
     <div>
-      <h1 className="text-4xl text-center text-gray-500">Calendario</h1>
       <section className="flex flex-wrap items-center justify-around mt-6">
 
       <table
@@ -149,7 +148,7 @@ export default function Calendario() {
           Selecciona un taller:
         </label>
         <select
-          className="w-[200px] bg-[--beige] p-2 text-[--brown] px-5"
+          className="w-[200px] bg-[--yellow] p-2 text-[--brown] px-5"
           id="talleres"
           value={selectedTaller}
           onChange={handleTallerChange}
@@ -173,7 +172,7 @@ export default function Calendario() {
           Seleccione la Hora:
         </label>
         <select
-          className="w-[200px] bg-[--beige] p-2 text-[--brown] px-5"
+          className="w-[200px] bg-[--yellow] p-2 text-[--brown] px-5"
           id="horarios"
           value={selectedHorario}
           onChange={handleHorarioChange}
@@ -194,11 +193,11 @@ export default function Calendario() {
          taller ${selectedTaller} del ${day} de enero en el horario 
          de ${selectedHorario} hrs.`}
         target="_blank"
-        className="bg-[--beige] px-4 py-1 text-[--brown] m-5 mt-5 text-xl 
+        className="bg-[--yellow] px-4 py-1 text-[--brown] m-5 mt-5 text-xl 
           font-bold transition hover:bg-[--brown] hover:text-white flex 
           justify-evenly items-center max-w-[300px]"
       >
-        <img width={35} src="https://cdn-icons-png.flaticon.com/128/733/733585.png" alt="whatsapp" />
+        <img width={35} className="mx-5" src="https://cdn-icons-png.flaticon.com/128/733/733585.png" alt="whatsapp" />
         Agendar Taller
       </a>
 

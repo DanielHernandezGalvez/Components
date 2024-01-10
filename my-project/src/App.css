@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "Bentoga Italic";
+  src: url("./assets/fonts/BentogaItalic.otf") format("truetype");
+  font-style: italic;
+  font-display: swap;
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Montserrat-VariableFont_wght";
+  src: url("./assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
@@ -14,4 +28,93 @@
     --green: #bbc1a9;
     --beige-clear: #e8e7d9;
     --gray: #707070;
+  }
+
+  
+  body {
+    font-family: "Bentoga Italic", "Montserrat", sans-serif;
+  }
+
+  .bentoga {
+    font-family: "Bentoga Italic", serif;
+    font-style: italic;
+  }
+
+  .monserrat {
+    font-family: "Montserrat-VariableFont_wght", sans-serif;
+  }
+
+  .brown {
+    color: var(--brown);
+  }
+
+  .gray {
+    color: var(--gray);
+  }
+
+  .green {
+    color: var(--green);
+  }
+
+  main {
+    margin: auto;
+
+    /* width: 800px;
+		max-width: calc(100% - 2rem); */
+    color: white;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .hero {
+    background-image: url("./assets/images/imagenes-07.png");
+    height: 60vh;
+    background-size: cover;
+    background-position: top;
+  }
+  .hero1 {
+    height: 60vh;
+    background-size: cover;
+    background-position: top;
+  }
+  .bg-beige-1 {
+    background-image: url("./assets/images/bg-beige-1.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  #boxes div:nth-child(1) {
+    background-image: url("./assets/images/box-1.png");
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+  #boxes div:nth-child(2) {
+    background-image: url("./assets/images/box-2.png");
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+  #boxes div:nth-child(3) {
+    background-image: url("./assets/images/box-3.png");
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bg-fundadores {
+    background-image: url("./assets/images/bg-founders.png");
+    background-size: cover;
+    background-position: bottom;
+  }
+
+  .slides-container {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  .slides-container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
   }
