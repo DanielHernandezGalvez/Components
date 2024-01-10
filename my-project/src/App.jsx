@@ -23,8 +23,17 @@ import ubicacion from "./assets/icons/map-round.png"
 import insta from "./assets/icons/instagram.png"
 import youtube from "./assets/icons/youtube.png"
 import facebook from "./assets/icons/facebook.png"
+import terminos from "./assets/pdf/terminos-de-uso.pdf"
+import privacidad from "./assets/pdf/aviso-de-privacidad.pdf"
+import politicas from "./assets/pdf/politicas-de-cancelacion.pdf"
 
 function App() {
+
+  const date = new Date();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  const monthName = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"][month - 1];
+
 
   return (
     <>
@@ -173,6 +182,7 @@ function App() {
           <h4 class="text-4xl text-[--brown] text-center pt-16 pb-16">
             CALENDARIO DE TALLERES
           </h4>
+          <h3 class="text-3xl text-[--brown] text-center ">{monthName}/{year}</h3>
           <Calendario />
         </section>
 
@@ -254,9 +264,9 @@ function App() {
         <footer
           class="text-center flex flex-col monserrat text-base gap-y-3 text-[--brown] font-medium py-10"
         >
-          <a href="./assets/pdf/terminos-de-uso.pdf" target="_blank">TÉRMINOS DE USO</a>
-          <a href="/pdf/aviso-de-privacidad.pdf" target="_blank">AVISO DE PRIVACIDAD</a>
-          <a href="/pdf/politicas-de-cancelacion.pdf" target="_blank">POLÍTICAS DE CANCELACIÓN</a>
+          <a href={terminos} target="_blank">TÉRMINOS DE USO</a>
+          <a href={privacidad} target="_blank">AVISO DE PRIVACIDAD</a>
+          <a href={politicas} target="_blank">POLÍTICAS DE CANCELACIÓN</a>
         </footer>
 
       </main>

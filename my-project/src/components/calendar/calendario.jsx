@@ -121,6 +121,7 @@ export default function Calendario() {
 
   return (
     <div>
+    
       <section className="flex flex-wrap items-center justify-around mt-6">
 
       <table
@@ -129,6 +130,7 @@ export default function Calendario() {
         border-gray-500 m-5"
       >
         <thead className="bg-[--brown] text-white">
+
           <tr>
             <th className="border border-[--brown] p-2">Lun</th>
             <th className="border border-[--brown] p-2">Mar</th>
