@@ -127,30 +127,30 @@ export default function Calendario() {
       <table
         className="border-collapse font-bold text-[--brown] 
         table-auto border border-[--brown] bg-[--yellow]
-        border-gray-500 m-5"
+        border-gray-500 m-5 "
       >
         <thead className="bg-[--brown] text-white">
 
           <tr>
-            <th className="border border-[--brown] p-2">Lun</th>
-            <th className="border border-[--brown] p-2">Mar</th>
-            <th className="border border-[--brown] p-2">Miér</th>
-            <th className="border border-[--brown] p-2">Jue</th>
-            <th className="border border-[--brown] p-2">Vier</th>
-            <th className="border border-[--brown] p-2">Sáb</th>
-            <th className="border border-[--brown] p-1">Dom</th>
+            <th className="border border-[--brown] lg:p-2">Lun</th>
+            <th className="border border-[--brown] lg:p-2">Mar</th>
+            <th className="border border-[--brown] lg:p-2">Miér</th>
+            <th className="border border-[--brown] lg:p-2">Jue</th>
+            <th className="border border-[--brown] lg:p-2">Vier</th>
+            <th className="border border-[--brown] lg:p-2">Sáb</th>
+            <th className="border border-[--brown] lg:p-1">Dom</th>
           </tr>
         </thead>
         <tbody>{renderCells()}</tbody>
       </table>
       
       <div className="flex justify-center items-center flex-col">
-      <div className="my-5 text-xl max-w-[500px] px-5">
-        <label className="bg-[--brown] text-white p-2 pe-4" htmlFor="talleres">
-          Selecciona un taller:
+      <div className="my-5 text-xl max-w-[500px] "> {/* aqiu habia px-5 */ }
+        <label className="bg-[--brown] text-white p-2 " htmlFor="talleres">
+          Seleccione un taller:
         </label>
         <select
-          className="w-[200px] bg-[--yellow] p-2 text-[--brown] px-5"
+          className="w-[200px] bg-[--yellow] p-2 text-[--brown] " 
           id="talleres"
           value={selectedTaller}
           onChange={handleTallerChange}
@@ -166,7 +166,7 @@ export default function Calendario() {
         </select>
       </div>
 
-      <div className="my-5 text-xl max-w-[500px] px-5">
+      <div className="my-5 text-xl max-w-[500px] ">  {/* aqiu habia px-5 */ }
         <label
           className="bg-[--brown] pe-6 text-white p-2 w-[200px]"
           htmlFor="horarios"
@@ -174,7 +174,7 @@ export default function Calendario() {
           Seleccione la Hora:
         </label>
         <select
-          className="w-[200px] bg-[--yellow] p-2 text-[--brown] px-5"
+          className="w-[200px] bg-[--yellow] p-2 text-[--brown] "
           id="horarios"
           value={selectedHorario}
           onChange={handleHorarioChange}

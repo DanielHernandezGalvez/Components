@@ -76,17 +76,26 @@
     background-position: top;
   }
   .hero1 {
+    position: relative;
     height: 60vh;
     background-size: cover;
     background-position: top;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
     .hero1 {
       height: 30vh;
    
     }
   }
+
+  @media screen and (max-width: 576px) {
+    .hero1 {
+      height: 50vh;
+   
+    }
+  }
+
   .bg-beige-1 {
     background-image: url("./assets/images/bg-beige-1.png");
     background-size: cover;

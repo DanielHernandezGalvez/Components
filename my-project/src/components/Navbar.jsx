@@ -76,17 +76,17 @@ const Navbar = () => {
                             </li>
                         </ul>
 
-                        <ul className="flex w-full lg:justify-end items-center gap-10 border-t-4 pt-7 md:justify-center border-[--brown]">
+                        <ul className="flex w-full lg:justify-end items-center gap-10 border-t-4 pt-7 pe-7 md:justify-center border-[--brown]">
                             <li className="transition hover:scale-110">
                                 <a href="https://www.instagram.com/aceitunaexperience?fbclid=IwAR3c9t6cBUB4XIWyC-kTT8xa3Vo81tv8nbt2JJdmpz1qmFz34UizYX6eIeE" target="_blank">
                                     <img src={instagram} alt="" />
                                 </a>
                             </li>
-                            <li className="transition hover:scale-110">
+                            {/* <li className="transition hover:scale-110">
                                 <a href="">
                                     <img src={youtube} alt="" />
                                 </a>
-                            </li>
+                            </li> */}
                             <li className="transition hover:scale-110">
                                 <a href="https://www.facebook.com/profile.php?id=61554323523242" target="_blank">
                                     <img src={facebook} alt="" />

@@ -45,11 +45,11 @@ function App() {
       <main class="bg-[--yellow]">
         <section class="hero">
           <div
-            class="w-50 bg-beige-1 text-center pt-16 pb-8 px-16 relative top-60 lg:max-w-[70vw] sm:max-w-[95vw] mx-auto"
+            class="w-50 bg-beige-1 text-center pt-16 pb-8 lg:px-16 relative top-60 lg:max-w-[70vw] sm:max-w-[95vw] mx-auto"
           >
             <span class="bg-[--beige] px-16 py-2 lg:text-3xl sm:text-1xl text-[--gray] monserrat"
             >ACEITUNA</span>
-            <p class="text-[--brown] lg:text-xl md:text-base sm:text-base mt-10">
+            <p class="text-[--brown] lg:text-xl md:text-sm sm:text-sm mt-10">
               Somos una plataforma dedicada a elevar la experiencia de los adultos
               con base a actividades de diferentes intereses y así empoderar su vida
               y hacer una comunidad de personas afines a sus intereses.
@@ -192,7 +192,7 @@ function App() {
 
         <section class="bg-[--beige] pb-16" id='contacto'>
           <h4 class="text-4xl text-[--brown] text-center pt-16 pb-16">CONTACTO</h4>
-          <form class="flex justify-center items-center gap-5" action="path/to/sendMail.php" method="POST">
+          <form class="flex justify-center items-center gap-5 flex-wrap" action="path/to/sendMail.php" method="POST">
             <input
               class="border-none w-[300px] py-4 ps-5 monserrat text-sm"
               type="text"
@@ -218,16 +218,13 @@ function App() {
               class="transition hover:scale-110"
               href="https://www.instagram.com/aceitunaexperience?fbclid=IwAR3c9t6cBUB4XIWyC-kTT8xa3Vo81tv8nbt2JJdmpz1qmFz34UizYX6eIeE"
               target="_blank"
-            ><img src={insta} alt="instagram" /></a
-            >
-            <a class="transition hover:scale-110" href="">
-              <img src={youtube} alt="youtube" /></a
-            >
+            ><img src={insta} alt="instagram" /></a>
+            {/* <a class="transition hover:scale-110" href="">
+              <img src={youtube} alt="youtube" /></a> */}
             <a
               class="transition hover:scale-110"
               href="https://www.facebook.com/profile.php?id=61554323523242"
-              target="_blank"><img src={facebook} alt="facebook" /></a
-            >
+              target="_blank"><img src={facebook} alt="facebook" /></a>
           </div>
 
           <div
