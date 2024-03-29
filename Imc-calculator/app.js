@@ -1,8 +1,9 @@
 function calcularIMC() {
+    
     // Obtenemos los valores del formulario
     var peso = document.getElementById("peso").value;
     var altura = document.getElementById("altura").value;
-  
+    
     // Calculamos el IMC
     var imc = peso / (altura * altura / 10000);
   
