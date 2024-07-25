@@ -1,0 +1,86 @@
+.selector-pestanas {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .pestana {
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    color: #ff7cee;
+  }
+  
+  .pestana.activa {
+    background-color: #537ca8;
+    color: #fff;
+  }
+  
+  .pestana i {
+    margin-right: 10px;
+  }
+  
+  .contenido-pestanas {
+    padding: 20px;
+  }
+  
+  .pestanas {
+    display: none;
+  }
+  
+  .pestanas.activa {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: sans-serif;
+  }
+
+  .pestanas.activa img {
+    width: 250px;
+  }
+
+  .producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333333;
+  }
+
+  .title {
+    font-size: 18px;
+    text-align: center;
+    padding: 0 20%;
+    color: #222222;
+  }
+
+  @media (max-width: 768px) {
+    .selector-pestanas {
+      flex-direction: column;
+    }
+  
+    .pestana {
+      font-size: 22px;
+      padding: 10px;
+      justify-content: start;
+      gap: 30px;
+    }
+
+    .pestana img {
+        width: 70px;
+    }
+  
+    .contenido-pestanas {
+      padding: 10px;
+    }
+  }
