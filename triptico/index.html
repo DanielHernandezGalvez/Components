@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!-- pagina principal -->
     <head> 
         <link
               rel="stylesheet"
@@ -264,7 +265,31 @@
           padding-top: 0;
           padding-bottom: 0;
         }
+
+        /* final */
         
+        .frase-container {
+    text-align: center;
+    margin: 50px auto;
+}
+
+.frase {
+    font-style: italic;
+    font-size: 24px;
+}
+
+.autor {
+    font-style: normal;
+    font-size: 18px;
+}
+
+.min-h{
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
         
         </style>
           </head>
@@ -340,19 +365,23 @@
                         font-weight: bold;
                       "
                     >
-                      <p class="gris">
+                    <div class="frase-container min-h">
+                        <i class="frase gris">La arquitectura es la voluntad de la época traducida en espacio.</i>
+                        <p class="autor gris">"Le Corbusier"</p>
+                    </div>
+                      <!-- <p class="gris">
                         Somos una empresa con 15 años de experiencia en el mercado, caracterizada por su compromiso, profesionalismo, calidad y garantía. Con la misión de brindar a nuestros clientes el más alto nivel de satisfacción, comprometiéndonos con la calidad en tiempo, ejecución y resultado final, con profesionalismo en la entrega.
-                      </p>
+                      </p> -->
                     </div>
                     <!-- nueva seccion -->
         
-                    <h2 class="text-center py gris">+700 Proyectos</h2>
+                    <h2 class="text-center py gris">+100 Proyectos</h2>
         
                     <a
                       href="http://duplagdl.com/category/comercial/"
                       class="div-img px py oficina bg-comercial"
                     >
-                      <p class="px blanco">100 Proyectos</p>
+                      <p class="px blanco">Ver Más</p>
                       <h3 class="px blanco">Comercial</h3>
                       <br />
                     </a>
@@ -360,7 +389,7 @@
                       href="http://duplagdl.com/category/oficina/"
                       class="div-img px py oficina bg-oficina"
                     >
-                      <p class="px blanco">100 Proyectos</p>
+                      <p class="px blanco">Ver Más</p>
                       <h3 class="px blanco">Oficina</h3>
                       <br />
                     </a>
@@ -368,19 +397,19 @@
                       href="http://duplagdl.com/category/residencial/"
                       class="div-img px py oficina bg-residencial"
                     >
-                      <p class="px blanco">80 Proyectos</p>
+                      <p class="px blanco">Ver Más</p>
                       <h3 class="px blanco">Residencial</h3>
                       <br />
                     </a>
         
-          <a
+          <!-- <a
                       href="http://duplagdl.com/category/proyectos/"
                       class="div-img px py oficina bg-proyectos"
                     >
                       <p class="px blanco">Ver Todos</p>
                       <h3 class="px blanco">Proyectos</h3>
                       <br />
-                    </a>
+                    </a> -->
         
                   </div>
                 </div>
@@ -480,14 +509,14 @@
             </div>
             <!-- pagina principal -->
         <script>
-        var audio = new Audio("http://duplagdl.com/wp-content/uploads/2023/11/musica-de-fondo.mp3");
-        audio.volume = 0.5;
+        // var audio = new Audio("http://duplagdl.com/wp-content/uploads/2023/11/musica-de-fondo.mp3");
+        // audio.volume = 0.5;
         
         
-        audio.addEventListener("loadstart", function() {
-          // Iniciar la reproducción del audio
-          audio.play();
-        });
+        // audio.addEventListener("loadstart", function() {
+        //   // Iniciar la reproducción del audio
+        //   audio.play();
+        // });
         
         function getYear() {
           const fechaActual = new Date();
@@ -496,6 +525,36 @@
         
         const yearSpan = document.getElementById("year");
         yearSpan.textContent = getYear();
+
+
+
+        // carrete
+        const citas = [
+    { frase: "Los arquitectos no inventan nada, solo transforman la realidad.", autor: "Álvaro Siza" },
+    { frase: "Una casa es una máquina para vivir.", autor: "Le Corbusier" },
+    { frase: "La arquitectura debe hablar de su tiempo y lugar, pero anhelar la eternidad.", autor: "Frank Gehry" },
+    { frase: "La arquitectura es el alcance de la verdad.", autor: "Louis I. Khan" },
+    { frase: "La arquitectura es la voluntad de la época traducida en espacio.", autor: "Le Corbusier" },
+    // ... y así sucesivamente para las demás citas
+];
+
+const fraseElement = document.querySelector('.frase');
+const autorElement = document.querySelector('.autor');
+
+let currentIndex = 0;
+
+function cambiarCita() {
+    const citaActual = citas[currentIndex];
+    fraseElement.textContent = citaActual.frase;
+    autorElement.textContent = `"${citaActual.autor}"`;
+    currentIndex = (currentIndex + 1) % citas.length;
+}
+
+setInterval(cambiarCita, 4000);
+
+
         </script>
             <!-- pagina principal -->
+
+            
 </html>
