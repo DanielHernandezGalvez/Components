@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <link
+              rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+              integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+              crossorigin="anonymous"
+            />
+        <style>
+        @import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+        
+        * {
+          margin: 0;
+          font-family: sans-serif;
+          font-family: "Kanit", sans-serif;
+        }
+        
+        :root{
+          --gris: #57585A;
+          --azul: #0a496a;
+          --blanco: #f5f5f5;
+        }
+        
+        .text-center {
+          text-align: center;
+        }
+        
+        .text-start {
+          text-align: start;
+        }
+        .text-end {
+          text-align: end;
+        }
+        
+        .px {
+          padding: 0 10px 0 10px;
+        }
+        
+        .py {
+          margin: 20px 0;
+        }
+        
+        .pt {
+          margin-top: 10px;
+        }
+        
+        .logo {
+          width: 30%;
+          margin: 2%;
+          padding: 10px 5px 4px 5px;
+          background-color: var(--blanco);
+        }
+        
+        .logo-2 {
+          display: none;
+        }
+        
+        /* página de inicio con scroll */
+        .container {
+          width: 100%;
+          height: 100vh;
+        }
+        
+        .container-padding {
+          padding: 0 10px;
+        }
+        
+        .row {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+        
+        .col-md-3 {
+          flex: 0 0 33.33%;
+          min-width: 200px;
+          max-width: 33.33%;
+          max-height: 100vh;
+          overflow-y: auto;
+        }
+        
+        @media screen and (max-width: 768px) {
+          .col-md-3 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            min-width: 100%;
+            max-height: 100%;
+          }
+        
+          .col-md-3.primera {
+            order: 2; /* Cambia el orden en la vista móvil */
+          }
+        
+          .logo {
+            display: none;
+          }
+        
+          .logo-2 {
+            display: block;
+        
+            width: 30%;
+            margin: 2% auto;
+            padding: 10px 5px 4px 5px;
+            background-color: #fff;
+          }
+        }
+        
+        ::-webkit-scrollbar {
+          display: none;
+        }
+        
+        .col-md-3::-webkit-scrollbar {
+          width: 0;
+        }
+        
+        .col-md-3::-webkit-scrollbar-thumb {
+          background-color: var(--gris);
+        }
+        /* página de inicio con scroll */
+        
+        .primera {
+          background-color: var(--gris);
+          color: white;
+        }
+        
+        .div-img {
+          width: 80%;
+          margin: 40px auto;
+        }
+        
+        .div-img img {
+          width: 100%;
+          height: auto;
+        }
+        
+        .bg-oficina {
+          background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url("https://cdn.pixabay.com/photo/2022/07/04/05/06/thailand-7300384_640.jpg");
+        }
+        
+        .bg-residencial {
+          background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url("https://cdn.pixabay.com/photo/2017/06/28/21/32/the-interior-of-the-2452233_640.jpg");
+        }
+        
+        .bg-comercial {
+          background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url("https://cdn.pixabay.com/photo/2015/11/07/15/46/business-centre-1031997_640.jpg");
+        }
+        
+        .bg-proyectos{
+          background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url("https://cdn.pixabay.com/photo/2014/06/17/16/53/blueprint-370588_1280.jpg");
+        }
+        
+        .oficina {
+          width: 70%;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          min-height: 300px;
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column-reverse;
+          padding: 20px 0;
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+          transition: 0.4s ease all;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        
+        .oficina:hover {
+          transform: scale(1.02);
+          box-shadow: 2px 2px 10px rgba(40, 40, 40, 0.8);
+        }
+        
+        .oficina h3 {
+          color: white;
+        }
+        
+        .oficina p {
+          color: white;
+        }
+        
+        .div-img-mapa {
+          width: 100%;
+          margin: 0;
+        }
+        
+        .div-img-mapa img {
+          width: 100%;
+        }
+        
+        .contact-col {
+          background-color: #57585A;
+        }
+        
+        ul {
+          list-style: none;
+          display: flex;
+          justify-content: flex-end;
+        }
+        
+        li {
+          width: 30px;
+          height: 30px;
+          background-color: #0a0a0a;
+          border-radius: 50%;
+          text-align: center;
+          margin-right: 10px;
+        }
+        
+        .icon {
+          margin-top: 7px;
+          color: white;
+          transition: 0.3s ease-in-out all;
+        }
+        
+        .icon:hover {
+          transform: scale(1.2);
+        }
+        
+        .footer {
+          font-size: 15px;
+          margin: 40px 0 20px 0;
+          font-weight: bold;
+        }
+        
+        .footer a {
+          text-decoration: none;
+        }
+        
+        
+        .gris{
+          color: #57585A;
+        }
+        
+        .azul{
+          color: #0A496A;
+        }
+        
+        .blanco{
+          color: #f5f5f5;
+        }
+        
+        .mapa{
+          height: 50vh;
+          object-fit: cover;
+        }
+        
+        .pb{
+          padding-bottom: 10px;
+        }
+        
+        .contacto-container{
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
+        
+        
+        .wp-site-blocks {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+        
+        
+        </style>
+          </head>
+        
+              <!-- pagina principal -->
+            <div class="container">
+              <div class="row">
+                <div class="col-md-3 primera">
+                  <div class="container-padding">
+                    <div class="pt">
+                      <img
+                        class="logo"
+                        src="http://duplagdl.com/wp-content/uploads/2023/11/logo-dupla.png"
+                        alt="logo dupla arquitectos"
+                      />
+                    </div>
+                    <h2 class="text-center py blanco">¿QUIÉNES SOMOS?</h2>
+                    <p class="text-center px blanco">
+                     <!-- texto de misión -->
+                      Somos una empresa de arquitectura con más de 15 años de
+                      experiencia, comprometidos con la calidad y el profesionalismo. La
+                      misión de Dupla Arquitectos es brindar a nuestros clientes el más
+                      alto nivel de satisfacción, comprometiéndonos con calidad en
+                      tiempo, ejecución y resultado final. Efectuamos todas nuestras
+                      actividades con un sincero compromiso de servicio, realizando cada
+                      una con profesionalismo y entrega.
+                      <!-- texto de misión -->
+                    </p>
+                    <div class="div-img px py">
+                      <!-- instagram -->
+                      <iframe
+                        src="https://www.instagram.com/duplagdl/embed/"
+                        width="100%"
+                        height="430px"
+                        frameborder="0"
+                        scrolling="no"
+                      >
+                        <style>
+                          body > iframe {
+                            overflow: hidden;
+                            width: 100%;
+                            height: 100%;
+                            box-shadow: 3px 5px 10px rgb(0 0 0 / 0.75);
+                          }
+                          @media screen and (max-width: 768px) {
+                            iframe {
+                              height: 1000px !important;
+                            }
+                          }
+                        </style>
+                      </iframe>
+                      <!-- instagram -->
+                    <img class="py" src="https://cdn.pixabay.com/photo/2016/11/24/20/30/floor-plan-1857175_1280.jpg" alt="" /> 
+        
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="container-padding">
+                    <img
+                      class="logo-2"
+                      src="http://duplagdl.com/wp-content/uploads/2023/11/logo-dupla.png"
+                      alt="logo dupla arquitectos"
+                    />
+                    <!-- nueva seccion -->
+                    <div
+                      style="
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        padding: 10px 10px;
+                        text-align: justify;
+                        font-weight: bold;
+                      "
+                    >
+                      <p class="gris">
+                        Somos una empresa con 15 años de experiencia en el mercado, caracterizada por su compromiso, profesionalismo, calidad y garantía. Con la misión de brindar a nuestros clientes el más alto nivel de satisfacción, comprometiéndonos con la calidad en tiempo, ejecución y resultado final, con profesionalismo en la entrega.
+                      </p>
+                    </div>
+                    <!-- nueva seccion -->
+        
+                    <h2 class="text-center py gris">+700 Proyectos</h2>
+        
+                    <a
+                      href="http://duplagdl.com/category/comercial/"
+                      class="div-img px py oficina bg-comercial"
+                    >
+                      <p class="px blanco">100 Proyectos</p>
+                      <h3 class="px blanco">Comercial</h3>
+                      <br />
+                    </a>
+                    <a
+                      href="http://duplagdl.com/category/oficina/"
+                      class="div-img px py oficina bg-oficina"
+                    >
+                      <p class="px blanco">100 Proyectos</p>
+                      <h3 class="px blanco">Oficina</h3>
+                      <br />
+                    </a>
+                    <a
+                      href="http://duplagdl.com/category/residencial/"
+                      class="div-img px py oficina bg-residencial"
+                    >
+                      <p class="px blanco">80 Proyectos</p>
+                      <h3 class="px blanco">Residencial</h3>
+                      <br />
+                    </a>
+        
+          <a
+                      href="http://duplagdl.com/category/proyectos/"
+                      class="div-img px py oficina bg-proyectos"
+                    >
+                      <p class="px blanco">Ver Todos</p>
+                      <h3 class="px blanco">Proyectos</h3>
+                      <br />
+                    </a>
+        
+                  </div>
+                </div>
+                <div class="col-md-3 contact-col">
+                  <div class="">
+                    <div class="div-img-mapa">
+                       <div
+                        style="
+                          width: 99%;
+                          height: 50vh;
+                          margin: 0;
+                          border: 1px solid #57585a;
+                          box-sizing: border-box;
+                        "
+                      >
+                        <iframe
+                          src="https://www.google.com/maps/d/embed?mid=1ciL0SgSmrVcFrnaeyJoZP93FD7Y2ZgE&hl=es-419&ehbc=2E312F"
+                          width="100%"
+                          height="100%"
+                        ></iframe>
+                      </div>
+         <p
+                        style="
+                          text-align: center;
+                          color: #fff;
+                          margin: 20px 0;
+                          font-weight: bold;
+                          font-size: 20px;
+                        "
+                      >
+                        Ubicaciones de obras ralizadas
+                      </p>
+                    </div>
+                    <div
+                      class="container-padding text-start py contacto-container container-padding"
+                    >
+                      <div>
+                        <h2 class="py px blanco">Contacto</h2>
+                        <p class="px blanco">www.duplagdl.com</p>
+                        <p class="px blanco">marcos@duplagdl.com</p>
+                      </div>
+                      <div>
+                        <ul style="margin-top: 110px;">
+                              <!-- redes -->
+                        <li>
+                          <a
+                            href="https://www.facebook.com/profile.php?id=100092240615471"
+                          >
+                            <i class="fab fa-facebook-f icon"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://www.instagram.com/duplagdl/"
+                            ><i class="fab fa-instagram icon"></i
+                          ></a>
+                        </li>
+                        <li>
+                          <a href="mailto:marcos@duplagdl.com"
+                            ><i class="fa fa-envelope icon"></i
+                          ></a>
+                        </li>
+                        <!-- redes -->
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="div-img px py">
+         <!-- <a class="div-img " style="cursor:pointer;" href="https://www.facebook.com/profile.php?id=100092240615471" target="_blank" rel="noopener"><img src="http://duplagdl.com/wp-content/uploads/2023/12/facebook-gallery.png" alt="facebook gallery" /></a> -->
+        
+        <!-- <iframe class="py" width="100%" height="100%" src="https://www.youtube.com/embed/OQtjzwnIMws" title="Experiencia CDS- Dupla arquitectos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+        
+        
+                    <iframe
+                      style="overflow: hidden !important; margin-top: -40px !important;"
+                      scrolling="no"
+                      class="py iframe-gallery"
+                      width="100%"
+                      height="450px"
+                      src="http://duplagdl.com/galeria/"
+                      title="Experiencia CDS- Dupla arquitectos"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                    ></iframe> 
+        
+                   
+                  </div>
+        
+                  <footer class="footer text-center blanco">
+                    &copy; <span id="year"></span> Desarrollado por
+                    <a href="https://wolfmkt360.com" class="blanco"
+                      >Wolf Marketing 360</a
+                    >
+                  </footer>
+                </div>
+              </div>
+            </div>
+            <!-- pagina principal -->
+        <script>
+        var audio = new Audio("http://duplagdl.com/wp-content/uploads/2023/11/musica-de-fondo.mp3");
+        audio.volume = 0.5;
+        
+        
+        audio.addEventListener("loadstart", function() {
+          // Iniciar la reproducción del audio
+          audio.play();
+        });
+        
+        function getYear() {
+          const fechaActual = new Date();
+          return fechaActual.getFullYear() + " ";
+        }
+        
+        const yearSpan = document.getElementById("year");
+        yearSpan.textContent = getYear();
+        </script>
+            <!-- pagina principal -->
+</html>
